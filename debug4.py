@@ -1,3 +1,5 @@
+# This might not be finished debugging
+
 # GoFishBuggy -- a buggy Go Fish Game
 # reference: Adam Barr, Find the Bug
 import random
@@ -23,8 +25,8 @@ def drawCard(name,deck,hand):
 			if len(hand) == 4:
 				print(name + " lay down " + cardRank + "s")
 				del hand[cardRank]
-			else:
-				hand[cardRank] = [ cardSuit ]
+		else:
+			hand[cardRank] = [ cardSuit ]
 
 def checkCard( handName, playerHand,cardRank, opponentHand):
 	"""Check if opponentHand contains any cards of this specified rank.. If so, transfer
@@ -33,7 +35,7 @@ def checkCard( handName, playerHand,cardRank, opponentHand):
 	Returns 1 if a card transferred, 0 otherwise
 	"""
 	if cardRank in opponentHand:
-		transferCards = opponentHands[cardRank]
+		transferCards = opponentHand[cardRank]
 		#transferCards is a ist
 		del opponentHand[cardRank]
 		if cardRank in playerHand:
@@ -41,7 +43,7 @@ def checkCard( handName, playerHand,cardRank, opponentHand):
 		else:
 			playerHand[cardRank] = transferCards
 
-		if len(playerHands[cardRank])==4:
+		if len(playerHand[cardRank])==4:
 			print(handName+" lay down ", cardRank +"s")
 			del playerHand[cardRank]
 			return 1
@@ -74,8 +76,9 @@ def playGoFish():
 	deck=[]
 	hand1={}
 	hand2={}
-	for i in range(52):
-		deck.append((ranks[i%13],suits[i%4]))
+	for rank in ranks:
+		for suit in suits:
+			deck.append((rank,suit))
 
 	for i in range(7):
 		drawCard("HAND1", deck, hand1)
