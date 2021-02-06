@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<!-- To run the program, open this HTML file in a browser. -->
+
+<form>
+  <label>n = <input id="n" type="number" value="0" /></label>
+  <button>Submit</button>
+</form>
+
+<div id="output"></div>
+
+<script>
+  document.querySelector("form").addEventListener("submit", () => {
+    // prevent the form submission from reloading
+    event.preventDefault();
+
+    // parse the value of n as an integer
+    const n = parseInt(document.getElementById("n").value);
+
+    let ret = "";
+    if (n % 3 === 0) ret += "Tech";
+    if (n % 7 === 0) ret += "Olympics";
+    if (ret === "") ret = n;
+
+    // put the value of ret into the output div
+    document.getElementById("output").innerText = ret;
+  });
+</script>
