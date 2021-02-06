@@ -22,26 +22,26 @@
 
 def drawSolidRectangle(n,m):
 # draws solid rectangle
-	for r in range(1,m+1):
-		for  c in range(1,n+1): 
+	for r in range(1,n+1):
+		for  c in range(1,m+1): 
 			print("*",end='')
 		print()
 
 def drawHollowRectangle(n,m):
 # draws top row of hollow rectangle
-	for c in range(0,m+1): 
+	for c in range(1,m+1): 
 		print("*",end='')
 	print()
 					
 # draws inner rows of hollow rectangle
 	for r in range(2,n): 
 		print("*",end='')
-		for c in range(1,m): 
+		for c in range(2,m): 
 			print(" ",end='')
 		print("*")
 
 #draws final row of hollow rectangle
-	for c in range(m+1): 
+	for c in range(1,m+1): 
 		print("*",end='')
 	print()	
 
@@ -51,14 +51,14 @@ def checkeredRectangle(n,m):
 # draws checkerd rectangle
 	for r in range(1,n+1):
 		for c in range(1,m+1): 
-			if c % 2 == 0:
+			if (r + c) % 2 == 0:
 				print("*",end='')
 			else:
 				print(" ",end='')
 		print()
 
-n = int(input("Enter the number of rows"))
-m = int(input("Enter the number of columns"))
+n = int(input("Enter the number of rows: "))
+m = int(input("Enter the number of columns: "))
 		
 drawSolidRectangle(n,m)
 print()
