@@ -7,14 +7,14 @@ def binarySearch(list, key):
 	left = 0 
 	right = len(list)-1
 	
-	while left < right:
-		mid = (right - left) // 2
+	while left <= right:
+		mid = (right + left) // 2
 		if list[mid] == key:
 			return mid
 		elif list[mid] > key:
-			left = mid + 1
-		else:
 			right = mid - 1
+		else:
+			left = mid + 1
 	return -1
 
 
@@ -22,8 +22,7 @@ list = [5, 9, 10, 12, 15, 17, 21, 25, 32, 44, 54, 65]
 
 # display array contents
 print("array to be searched:")
-for i in range(len(list)):
-	print("["+str(list[i])+"] ")
+print(list)
 print()
 	
 print()
