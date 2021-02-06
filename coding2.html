@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<!-- To run the program, open this HTML file in a browser. -->
+
+<form>
+  <label>Number of coconuts <input id="n" type="number" value="0" /></label>
+  <button>Submit</button>
+</form>
+
+<div id="output"></div>
+
+<script>
+  function couldBeCorrectNumberOfCoconuts(n) {
+    let coconutsLeft = n;
+    // The coconuts are divided up 4 times: Alexa, Karen, Taron, and all together
+    for (let i = 0; i < 4; i++) {
+      // Each round of splitting, there must be 1 coconut to give to the monkey
+      if (coconutsLeft % 3 !== 1) return false;
+      // Each person takes a third of the coconuts
+      coconutsLeft = ((coconutsLeft - 1) / 3) * 2;
+    }
+    return true;
+  }
+
+  function getOutput(n) {
+    return `${n} could${
+      couldBeCorrectNumberOfCoconuts(n) ? "" : " not"
+    } be the number of coconuts in the pile`;
+  }
+
+  document.querySelector("form").addEventListener("submit", (event) => {
+    // prevent the form submission from reloading
+    event.preventDefault();
+
+    // parse the value of n as an integer
+    const n = parseInt(document.getElementById("n").value);
+
+    // put the value of ret into the output div
+    document.getElementById("output").innerText = getOutput(n);
+  });
+</script>
