@@ -29,17 +29,14 @@ function remainder(n, m) {
  * the move I need to make in order to win.
  */
 function moveNeeded(numLeft, remainderNeeded) {
-  // console.log(numLeft, remainderNeeded);
   remainderNeeded = remainder(remainderNeeded, 2);
   if (numLeft === 0) {
     return remainderNeeded === 0;
   }
   for (let nextMove = 1; nextMove <= 3; nextMove++) {
     if (numLeft - nextMove < 0) {
-      // console.log("Too big. Continuing.");
       continue;
     }
-    // console.log("...");
     const newNumCounters = numLeft - nextMove;
     const newRemainderNeeded = remainder(remainderNeeded - nextMove, 2);
     const newRemainderOtherPlayerNeeds = remainder(
@@ -68,7 +65,6 @@ function moveNeeded(numLeft, remainderNeeded) {
  * the move AI needs to make in order to win.
  */
 function getAIMove(numLeft, numCountersAIHas) {
-  // console.log(1 - numCountersAIHas, moveNeeded(numLeft, 1 - numCountersAIHas));
   return moveNeeded(numLeft, 1 - numCountersAIHas);
 }
 
