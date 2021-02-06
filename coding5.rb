@@ -1,6 +1,6 @@
 # To run this program, run this command: ruby coding5.rb
 
-# To choose the next word, this program looks at the previous word
+# To choose the next word, this program looks at the previous word and
 # chooses randomly from the words that come after it in both texts.
 
 def get_words
