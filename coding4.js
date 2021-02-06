@@ -1,5 +1,8 @@
 // @ts-check
 
+// This program uses Node.js.
+// To run this program, run this command: node coding4.js
+
 // AI
 
 /**
@@ -18,8 +21,9 @@ function remainder(n, m) {
 
 /**
  *
- * @param {number} numLeft
- * @param {number} remainderNeeded
+ * @param {number} numLeft total counters left
+ * @param {number} remainderNeeded The remainder that I need to get
+ * for my remaining counters
  * @returns {number | boolean} If I can't win, returns false. If
  * the game is over and I won, returns true. Otherwise, returns
  * the move I need to make in order to win.
@@ -54,13 +58,27 @@ function moveNeeded(numLeft, remainderNeeded) {
   return false;
 }
 
-// console.log(moveNeeded(3, 1));
-
+/**
+ *
+ * @param {number} numLeft total counters left
+ * @param {number} numCountersAIHas Number of counters that the AI
+ * has
+ * @returns {number | boolean} If AI can't win, returns false. If
+ * the game is over and AI won, returns true. Otherwise, returns
+ * the move AI needs to make in order to win.
+ */
 function getAIMove(numLeft, numCountersAIHas) {
   // console.log(1 - numCountersAIHas, moveNeeded(numLeft, 1 - numCountersAIHas));
   return moveNeeded(numLeft, 1 - numCountersAIHas);
 }
 
+/**
+ *
+ * @param {number} numLeft total counters left
+ * @param {number} numCountersAIHas Number of counters that the AI
+ * has
+ * @returns {number} The AI's next move
+ */
 function getFinalAIMove(numLeft, numCountersAIHas) {
   let ret = getAIMove(numLeft, numCountersAIHas);
   if (ret === false) {
@@ -73,6 +91,11 @@ function getFinalAIMove(numLeft, numCountersAIHas) {
   return ret;
 }
 
+/**
+ *
+ * @param {number} numCounters The initial total number of counters
+ * @returns {boolean} Can the AI win?
+ */
 function shouldAIGoFirst(numCounters) {
   return getAIMove(numCounters, 0) !== false;
 }
