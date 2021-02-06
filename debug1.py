@@ -48,7 +48,7 @@ def drawHollowRectangle(n,m):
     
 
 def checkeredRectangle(n,m):
-# draws checkerd rectangle
+# draws checkered rectangle
 	for r in range(1,n+1):
 		for c in range(1,m+1): 
 			if (r + c) % 2 == 0:
