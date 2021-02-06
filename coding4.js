@@ -2,6 +2,7 @@
 
 // This program uses Node.js.
 // To run this program, run this command: node coding4.js
+// Limitation: it can be very slow for large numbers of initial counters.
 
 // AI
 
