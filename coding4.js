@@ -2,6 +2,10 @@
 
 // This program uses Node.js.
 // To run this program, run this command: node coding4.js
+// Explanation: This program uses a recursive algorithm to find the move
+// for a player to take that will guarantee their win. For each possible move,
+// it calls itself to figure out whether the other player can win if it plays
+// that possible move next.
 // Limitation: it can be very slow for large numbers of initial counters.
 
 // AI
