@@ -1,1 +1,1 @@
-# techolympics-software-development
+# My solutions to questions in the TechOlympics Software Development Competition
